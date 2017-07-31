@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- bootstrap link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.scss">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,11 +20,12 @@
     </div>    
   </div>
 
+
 <!-- navagation bar -->
   <div class="container-fluid text-center">
     <div id="navbar" class="row" style="background-color: blue">
-      <div class="col-sm-4">HOME</div>
-      <div class="col-sm-4">Join the Fun</div>
+      <button id="createPlayer" class="col-sm-4">Create a Player</button>
+      <div class="col-sm-4">Help</div>
       <div class="col-sm-4">Quit</div>
     </div>
 
@@ -75,21 +77,24 @@
       <div id="solveButton" class="col-xs-6">SOLVE</div>
     </div>
 
-    <div id="keyboard" class="row col-xs-9" style="background-color: lightblue">
-      <div>This will be the KEYBOARD Element</div>
+    <div id="inputFields" class="row">
+      <input id="letterEntered" type="text" name="letterSelected" value="" maxlength="1" class="col-xs-4">
+      <input id="submitButton" type="submit" name="Submit!"  onclick="checkIfLetter()">
+      
     </div>
+
+    
 <br>
     <div id="socialMedia" class="row" style="background-color: blue">
       <div class="col-xs-6">THIS WILL CONTAIN SOCIAL MEDIA LINKS</div>
       
     </div>
-
-  </div>
+    </div>
 
     <!-- jquery link -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   <!-- bootstrap script -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <script type="text/javascript" src="myScript.js"></script>
 </body>
 </html>
