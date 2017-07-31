@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Wheel of Fortune</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<!--   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+ -->
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/myCss.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+   <script src='Winwheel.js'></script>
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+  <div class="row">
+    <div class="twelve columns centered">
+        <img id="downArrow" src="images/down-arrow.png">
+    </div>
+  </div>
+  <div class="row centered">   
+      <div id="wheelRow" class="twelve columns centered">
+        <canvas id='myCanvas' width='500' height='400'>
+                Canvas not supported, use another browser.
+            </canvas>
+            <script>
+                var theWheel = new Winwheel({
+                  'canvasId'    : 'myCanvas',
+                'numSegments' : 8,
+                'text alignment' : 'outer',
+                'rotationAngle'   : -30,
+                'segments'    :
+            [
+                {'fillStyle' : '#eae56f', 'text' : '100'},
+                {'fillStyle' : '#89f26e', 'text' : '5000'},
+                {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
+                {'fillStyle' : '#e7706f', 'text' : '300'},
+                {'fillStyle' : '#eae56f', 'text' : 'A cat'},
+                {'fillStyle' : '#89f26e', 'text' : '3 beers'},
+                {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
+                {'fillStyle' : '#e7706f', 'text' : 'Punch in the face'}
+            ],
+                'animation' : 
+                {
+                  'type': 'spinToStop',
+                  'duration': 5,
+                  'spins': 3
+                },
+
+                'lineWidth'   : 3
+                });
+            </script>
+      </div>
+  </div>
+  <div id="selectionRow" class="row centered">
+    <div class="six columns centered" style="background-color: blue">
+        <button id="spinButton" class="three columns centered" type="button" onclick="theWheel.startAnimation()">Spin</button>
+    </div>
+    <div class="six columns" style="background-color: blue">
+      <form>
+        Make your selection below:<br>
+        <input id="letterEntered" type="text" name="letterSelected" value="" maxlength="1">
+        <button id="submitChoice" type="submit">click here to submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+ 
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

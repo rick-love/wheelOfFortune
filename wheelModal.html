@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Winning Wheel</title>
+        <script src='Winwheel.js'></script>
+    </head>
+    <body>
+        <canvas id='myCanvas' width='880' height='500'>
+            Canvas not supported, use another browser.
+        </canvas>
+        <script>
+            var theWheel = new Winwheel({
+            	'canvasId'    : 'myCanvas',
+        		'numSegments' : 8,
+        		'text alignment' : 'outer',
+        		'segments'    :
+        [
+            {'fillStyle' : '#eae56f', 'text' : '100'},
+            {'fillStyle' : '#89f26e', 'text' : '5000'},
+            {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
+            {'fillStyle' : '#e7706f', 'text' : 'Date with the Wesley'},
+            {'fillStyle' : '#eae56f', 'text' : 'Segment 5'},
+            {'fillStyle' : '#89f26e', 'text' : 'Segment 6'},
+            {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
+            {'fillStyle' : '#e7706f', 'text' : 'Segment 8'}
+        ],
+
+        		'lineWidth'   : 3
+            });
+        </script>
+    </body>
+</html>
