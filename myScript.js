@@ -68,29 +68,28 @@ var displayPuzzle = function(puzzleObject) {
 	var keys = Object.keys(puzzleObject)
 	var randomGame = (puzzleObject[keys[ keys.length * Math.random() << 0]]);
 	currentGame = randomGame.split('');
-	console.log(currentGame)
 	for(i = 0; i < currentGame.length; i++){
 		var el = document.createElement('span');
 		el.setAttribute("class", "puzzleLetters");
-		el.innerHTML = '<span>' + currentGame[i] + '</span>'
+		el.innerHTML = '<span class="guessLetter">' + currentGame[i] + '</span>'
 		document.getElementById('puzzle').appendChild(el);
 	}    
 };
 
+function matchLetter(guess){
+	//This is our puzzle letters
+	var letters = document.getElementsByClassName('guessLetter');
+	//We are looping through our puzzle letters to see if our letter that the user clicked is in our puzzle
+	for(var i = 0; i < letters.length; i++){
+		if(guess === letters[i].innerHTML){
+			letters[i].style.display = "inline";
+		}
+	}
+}
 
-
-// function getSpinValue(){
-// 	var winningSegment = theWheel.getIndicatedSegment();
-// 	alert(winningSegment);
-
-// 	theWheel.segments[].text
-// }
-
-
-// function checkLetter (letter){
-
-// }
-
+$('.letter').on('click', function(){
+	matchLetter(this.innerHTML)
+})
 
 
 document.getElementById('spinButton').addEventListener('click', function(){
@@ -104,6 +103,15 @@ document.getElementById('reset').addEventListener('click', function(){
 document.getElementById('startGame').addEventListener('click', function(){
 	displayPuzzle(puzzleObject);
 });
+
+// var displayValue = function(){
+// 	for(var i = 1;)
+// }
+
+
+
+
+
 
 
 

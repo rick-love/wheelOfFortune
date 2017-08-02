@@ -27,7 +27,7 @@ var theWheel = new Winwheel({
 		'type': 'spinToStop',
 		'duration': 5,
 		'spins': 3,
-		'callbackFinished': 'getSpinValue()'
+		'callbackFinished' : 'alertPrize()'
 	},
 
 	'lineWidth'   : 3
@@ -42,4 +42,13 @@ function resetWheel()
                 theWheel.draw();                // Call draw to render changes to the wheel.
                 wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
             }
+
+function alertPrize()
+{
+    // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+    var winningSegment = theWheel.getIndicatedSegment();
+
+    // Basic alert of the segment text which is the prize name.
+    alert("You'll be playing for " + winningSegment.text + "!");
+}
 

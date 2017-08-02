@@ -1,9 +1,23 @@
 button {
   font-size: 16px; }
 
+button:hover {
+  background-color: red; }
+
 .puzzleLetters {
   border: 1px black solid;
-  background-color: blue; }
+  font-size: 50px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  width: 50px; }
+  .puzzleLetters span {
+    display: none;
+    width: 50px; }
+
+.guessLetter {
+  padding: 10px;
+  width: 50px; }
 
 body {
   font-size: 12px;
@@ -11,5 +25,16 @@ body {
 
 span {
   font-size: 36px; }
+
+.centered {
+  text-align: center; }
+
+.plFontColor {
+  color: white; }
+
+.box {
+  height: 20px;
+  width: 20px;
+  background-color: white; }
 
 /*# sourceMappingURL=main.css.map */
