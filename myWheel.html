@@ -26,8 +26,10 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <script type="text/javascript" src="myScript.js" ></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
    <script src='Winwheel.js'></script>
+
 </head>
 <body>
 
@@ -47,8 +49,15 @@
             </canvas>
             <script>
                 var theWheel = new Winwheel({
-                  'canvasId'    : 'myCanvas',
+                'canvasId'    : 'myCanvas',
                 'numSegments' : 8,
+                'pointerAngle': 0,
+                'pointerGuide':
+                {
+                  'display' : true,
+                  'strokeStyle': 'red',
+                  'lineWidth' : 3
+                },
                 'text alignment' : 'outer',
                 'rotationAngle'   : -30,
                 'segments'    :
@@ -57,38 +66,44 @@
                 {'fillStyle' : '#89f26e', 'text' : '5000'},
                 {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
                 {'fillStyle' : '#e7706f', 'text' : '300'},
-                {'fillStyle' : '#eae56f', 'text' : 'A cat'},
-                {'fillStyle' : '#89f26e', 'text' : '3 beers'},
+                {'fillStyle' : '#eae56f', 'text' : '500'},
+                {'fillStyle' : '#89f26e', 'text' : '200'},
                 {'fillStyle' : '#7de6ef', 'text' : 'Bankrupt'},
-                {'fillStyle' : '#e7706f', 'text' : 'Punch in the face'}
+                {'fillStyle' : '#e7706f', 'text' : '200'}
             ],
                 'animation' : 
                 {
                   'type': 'spinToStop',
                   'duration': 5,
-                  'spins': 3
+                  'spins': 3,
+                  'callbackAfter' : 'drawTriangle()'
                 },
 
                 'lineWidth'   : 3
                 });
+
+            function displayPrize(){
+              var winngingSegment = theWheel.getIndicatedSegmentNumber();
+            }
+
+
             </script>
       </div>
   </div>
   <div id="selectionRow" class="row centered">
-    <div class="six columns centered" style="background-color: blue">
+    <div class="six columns centered">
         <button id="spinButton" class="three columns centered" type="button" onclick="theWheel.startAnimation()">Spin</button>
     </div>
-    <div class="six columns" style="background-color: blue">
+    <div class="six columns">
       <form>
-        Make your selection below:<br>
+        Choose a letter and enter it below:<br>
         <input id="letterEntered" type="text" name="letterSelected" value="" maxlength="1">
-        <button id="submitChoice" type="submit">click here to submit</button>
+        <button id="submitChoice" type="submit" onclick="checkIfLetter()">click here to submit your choice</button>
       </form>
 
     </div>
   </div>
 </div>
- 
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

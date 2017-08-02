@@ -1,100 +1,114 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
-  <title>Wheel of fortune</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- bootstrap link -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheets/main.scss">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
 
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Wheel of Fotune</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<!--   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+ -->
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/myCss.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
 <body>
 
-  <div id="jumbotron" class="jumbotron jumbotron-fluid text-center">
-    <div class="container">
-      <h1 class="display-3">Wheel of Fortune</h1>
-      
-    </div>    
-  </div>
-
-
-<!-- navagation bar -->
-  <div class="container-fluid text-center">
-    <div id="navbar" class="row" style="background-color: blue">
-      <button id="createPlayer" class="col-sm-4">Start a new game</button>
-      <button id="createPlayer" class="col-sm-4">Create a Player</button>
-      <button id="createPlayer" class="col-sm-4">Quit and give up</button>
-    </div>
-
-
-<!-- puzzle section -->
-    <div id="puzzle" class="row" style="background-color: green">
-      <div>
-        <h1>PLACEHOLDER FOR PUZZLE</h1>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ <div id="header" class="container">
+    <div id="headerRow" class="row">
+      <div class="twelve columns centered">
+      	<h1>Wheel of Fortune</h1>
       </div>
     </div>
 
-<!-- player cards -->
-    <div id="playerGrid" class="row" style="background-color: lightblue">
-<!-- player 1 -->
-      <div class="col-xs-4">
-        <div class="card">
-          <img src="images/playerImage.jpg" class="card-img img-fluid">
-            <div class="card-block text-muted">
-              <h3 class="card-title">PLAYER1</h3>
-                <h4>SCORE</h4>
-            </div>
-        </div>
-      </div>
-<!-- player 2 -->
-      <div class="col-xs-4">
-        <div class="card">
-          <img src="images/playerImage.jpg" class="card-img img-fluid">
-            <div class="card-block text-muted">
-              <h3 class="card-title">PLAYER1</h3>
-                <h4>SCORE</h4>
-            </div>
-        </div>
-      </div>
-<!-- player 3 -->
-      <div class="col-xs-4">
-        <div class="card">
-          <img src="images/playerImage.jpg" class="card-img img-fluid">
-            <div class="card-block text-muted">
-              <h3 class="card-title">PLAYER1</h3>
-                <h4>SCORE</h4>
-            </div>
-        </div>
-      </div>
+	  <div id="gamecontrols" class="row centered">
+	  	<button id="startGame" type="button" class="four columns";>Start a new game</button>
+<!-- 	    <button id="createPlayer" type="button">Create a Player</button>
+	    <button id="quit" type="button">Quit and give up</button> -->
+	  </div>
+
+	<div id="puzzleRow" class="row centered">
+    	<div id="puzzle" class="twelve columns" style="border: 1px solid black;">
+    	</div>
     </div>
 
-<!-- buttons -->
-    <div id="buttonsRow" class="row">
-      <div id="spinButton" class="col-xs-6">SPIN</div>
-      <div id="solveButton" class="col-xs-6">SOLVE</div>
+    <div class="row centered">
+    	<div id="wheel" class="seven columns centered">
+	        <canvas id='myCanvas' width='400' height='300'>
+	                Canvas not supported, use another browser.
+	        </canvas>
+	    </div>
+	</div>
+
+	<div id="spinRow" class="row">
+		<div class="six columns">
+			<button id="spinButton" type="button">Spin</button>
+		</div>
+		<div class="six columns">
+			<button id="reset" type="button">Spin again</button>
+		</div>
+	</div>
+
+    <div id="keyboardRow" class="row">
+    	<div id="keyboard" class="twelve columns centered">
+	          <button id="q" class="letter">q</button>
+	          <button id="w" class="letter">w</button>
+	          <button id="e" class="letter">e</button>
+	          <button id="r" class="letter">r</button>
+	          <button id="t" class="letter">t</button>
+	          <button id="y" class="letter">y</button>
+	          <button id="u" class="letter">u</button>
+	          <button id="i" class="letter">i</button>
+	          <button id="o" class="letter">o</button>
+	          <button id="p" class="letter">p</button>
+	          <br>
+	          <button id="a" class="letter">a</button>
+	          <button id="s" class="letter">s</button>
+	          <button id="d" class="letter">d</button>
+	          <button id="f" class="letter">f</button>
+	          <button id="g" class="letter">g</button>
+	          <button id="h" class="letter">h</button>
+	          <button id="j" class="letter">j</button>
+	          <button id="k" class="letter">k</button>
+	          <button id="l" class="letter">l</button>
+	          <br>
+	          <button id="z" class="letter">z</button>
+	          <button id="x" class="letter">x</button>
+	          <button id="c" class="letter">c</button>
+	          <button id="v" class="letter">v</button>
+	          <button id="b" class="letter">b</button>
+	          <button id="n" class="letter">n</button>
+	          <button id="m" class="letter">m</button>
+		</div>
     </div>
 
-    <div id="inputFields" class="row">
-      <input id="letterEntered" type="text" name="letterSelected" value="" maxlength="1">
-      <input id="submitButton" type="submit" name="Submit!"  onclick="checkIfLetter()">
-      
-    </div>
+ 
+</div>
 
-    
-<br>
-    <div id="socialMedia" class="row" style="background-color: blue">
-      <div class="col-xs-6">THIS WILL CONTAIN SOCIAL MEDIA LINKS</div>
-      
-    </div>
-    </div>
-
-    <!-- jquery link -->
-
-  <!-- bootstrap script -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="myScript.js"></script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src='Winwheel.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="setupWheel.js"></script>
+<script type="text/javascript" src="myScript.js" ></script>
 </body>
 </html>

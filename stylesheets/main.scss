@@ -1,2 +1,13 @@
 @import 'partial';
-@import 'button';
+@import 'buttons';
+@import 'letters';
+
+body{
+	font-size:12px;
+	background-color: #03a9f4;
+
+}
+
+span{
+	font-size:36px;
+}

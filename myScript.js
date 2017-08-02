@@ -6,7 +6,7 @@
 // 	submit the solution - getElement
 // 	bankrupt-
 // 	add value to player if guess is correct
-// 	change players when guess is not correct
+// 	change player when guess is not correct
 // 	end game
 
 
@@ -20,77 +20,92 @@
 	// submit the solution - getElement
 	// bankrupt-
 	// add value to player if guess is correct
-	// change players when guess is not correct
+	// change player when guess is not correct
 	// end game
-var score = 0;
-var puzzle = [];
-var lettersSelected = [];
-var playerIndex = 0;
-var players = [];
+	var score = 0;
+	var lettersSelected = [];
+	var playerIndex = 0;
+	var player = [];
+	var puzzleObjectIndex = 0;
+	var currentGame = [];
+	var el;
+
+	var puzzleObject = {
+		food: "pizza",
+		Country: "germany",
+		hobby: "surfing"
+	}
 
 // creates a new game, puzzle, player object
-function Game(Puzzle, Player, Score){
-	this.Puzzle = Puzzle;
-	this.Player = Player;
+function game(puzzle, player, score){
+	this.puzzle = puzzle;
+	this.player = player;
+	this.score = score;
 }
 
-function Puzzle(letter, letterIndex){
+function puzzle(letter, letterIndex){
 	this.letter = letter;
 	this.letterIndex = letterIndex;
 }
 
-function Player(image, name, score, index){
+function player(image, name, score, index){
 	this.image = image;
 	this.name = name;
 	this.score = score;
 	this.playerIndex = index;
 }
 
-var newGame = new Game;
-var newPuzzle = new Puzzle;
-var newPlayer = new Player;
+var newgame = new game;
+// var newPuzzle = new puzzle;
+// var newplayer = new player;
 
-Game.prototype = Object.create(Puzzle.prototype);
-Game.prototype = Object.create(Player.prototype);
+game.prototype = Object.create(puzzle.prototype);
+// game.prototype = Object.create(player.prototype);
 
-// enter a puzzle function
-Game.prototype.enterPuzzle = function(puzzle){
-  var result = puzzle.split("");
-  // send result to keyboard
-}
 
-// check if is a letter
-Game.prototype.checkIfLetter = function(x){
-  var y = x.toString();
-	var test = /[a-zA-Z]/g;
-	  if(y.match(test)){
-	  	return true;
-        } else{
-          alert("This is not a valid entry")
-        }
-}
 
-Game.prototype.submitGuess = function(guess){
-// 	var guess = document.getElementById('guess');
-	
-	if(checkIfLetter == true){
-	for(var i = 0; i < this.Puzzle.length; i++){
-		if (guess != this.Puzzle[i]){
-			alert('That is incorrect');
-			// switch player function
-		} else {
-			alert('Good Choice');
-				}
-		}	
-	}
-}
+var displayPuzzle = function(puzzleObject) {
+	var keys = Object.keys(puzzleObject)
+	var randomGame = (puzzleObject[keys[ keys.length * Math.random() << 0]]);
+	currentGame = randomGame.split('');
+	console.log(currentGame)
+	for(i = 0; i < currentGame.length; i++){
+		var el = document.createElement('span');
+		el.setAttribute("class", "puzzleLetters");
+		el.innerHTML = '<span>' + currentGame[i] + '</span>'
+		document.getElementById('puzzle').appendChild(el);
+	}    
+};
 
-Puzzle.prototype.chosenLetters = function(guess){
-	lettersSelected.push(guess);
-}
 
-// Player.prototype.nextPlayer = function(){
-// 	if()
+
+// function getSpinValue(){
+// 	var winningSegment = theWheel.getIndicatedSegment();
+// 	alert(winningSegment);
+
+// 	theWheel.segments[].text
 // }
+
+
+// function checkLetter (letter){
+
+// }
+
+
+
+document.getElementById('spinButton').addEventListener('click', function(){
+	theWheel.startAnimation();
+});
+
+document.getElementById('reset').addEventListener('click', function(){
+	resetWheel();
+});
+
+document.getElementById('startGame').addEventListener('click', function(){
+	displayPuzzle(puzzleObject);
+});
+
+
+
 
 

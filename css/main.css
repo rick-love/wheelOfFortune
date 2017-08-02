@@ -1,18 +1,15 @@
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
+button {
+  font-size: 16px; }
 
-li {
-  float: left;
-  margin: 0 5px 5px 0;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  background: #fff;
-  border: 1px solid #f9f9f9;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px; }
+.puzzleLetters {
+  border: 1px black solid;
+  background-color: blue; }
+
+body {
+  font-size: 12px;
+  background-color: #03a9f4; }
+
+span {
+  font-size: 36px; }
 
 /*# sourceMappingURL=main.css.map */
